@@ -3,7 +3,7 @@
 // A doubly linked list whose nodes contain integer values.
 // Written by: Eduardo Zamora
 // Email: ezamora9@ucsc.edu
-// Programming Assignment 3 hi
+// Programming Assignment 3
 //-----------------------------------------------------------------------------
 
 class List {
