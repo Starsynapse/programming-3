@@ -9,12 +9,28 @@
 class List {
     private class Node{
         // Fields
-        int data;
+        Object data;// Now a list of Objects
         Node next;
         Node previous;
 
         // Constructors
-        Node(int data) {this.data = data; next = null; previous = null;}
+        Node(Object data) {this.data = data; next = null; previous = null;}
+
+        // toString():  overrides Object's toString() method
+        public String toString() {
+            return String.valueOf(data);
+        }
+
+        // equals(): overrides Object's equals() method
+        public boolean equals(Object x){
+            boolean eq = false;
+            Node that;
+            if(x instanceof Node){
+                that = (Node) x;
+                eq = (this.data.equals(that.data));
+            }
+            return eq;
+        }
     }
 
     // Fields
@@ -48,7 +64,7 @@ class List {
     }
 
     // Returns front element. Pre: length()>0
-    int front(){
+    Object front(){
         if(length <= 0){
             throw new RuntimeException("List ADT / int front() / length() > 0");
         }
@@ -57,7 +73,7 @@ class List {
     }
 
     // Returns back element. Pre: length()>0
-    int back(){
+    Object back(){
         if(length <= 0){
             throw new RuntimeException("List ADT / int back() / length() > 0");
         }
@@ -66,7 +82,7 @@ class List {
     }
 
     // Returns cursor element. Pre: length()>0, index()>=0
-    int get(){
+    Object get(){
         if(length <= 0 && index < 0){
             throw new RuntimeException("List ADT / int get() / length() > 0 && index() >= 0");
         }
@@ -84,11 +100,11 @@ class List {
 
     // Returns true if and only if this List and L are the same integer sequence.
     // The states of the cursors in the two Lists are not used in determining equality.
-    boolean equals(List L){
-        Node temp1 = L.front;
+    public boolean equals(Object x){
+        Node temp1 = ((List)x).front;
         Node temp2 = front;
 
-        if(L.length != length){
+        if(((List)x).length != length){
             return false;
         }
 
@@ -161,7 +177,7 @@ class List {
     }
 
     // Insert new element into this List. If List is non-empty, insertion takes place before front element
-    void prepend(int data){
+    void prepend(Object data){
         Node N = new Node(data);
 
         if (length == 0){
@@ -180,7 +196,7 @@ class List {
     }
 
     // Insert new element into this List. If List is non-empty, insertion takes place after back element
-    void append(int data) {
+    void append(Object data) {
         Node N = new Node(data);
 
         if (length == 0){
@@ -197,7 +213,7 @@ class List {
 
     // Insert new element before cursor.
     // Pre: length()>0, index()>=0
-    void insertBefore(int data){
+    void insertBefore(Object data){
         if(length <= 0 && index < 0){
             throw new RuntimeException("List ADT / void insertBefore(int data) / length() > 0 && index() >= 0");
         }
@@ -232,7 +248,7 @@ class List {
 
     // Inserts new element after cursor.
     // Pre: length()>0, index()>=0
-    void insertAfter(int data){
+    void insertAfter(Object data){
         if(length <= 0 && index < 0){
             throw new RuntimeException("List ADT / void insertAfter(int data) / length() > 0 && index() >= 0");
         }
@@ -367,26 +383,10 @@ class List {
         Node temp = front;
 
         while(temp != null){
-            string1 = string1.concat(Integer.toString(temp.data) + " ");
+            string1 = string1.concat(temp.data.toString() + " ");
             temp = temp.next;
             }
 
         return string1;
-    }
-
-    // Returns a new List representing the same integer sequence as this
-    // List. The cursor in the new list is undefined, regardless of the
-    // state of the cursor in this List. This List is unchanged
-    List copy(){
-        List L = new List();
-
-        Node temp1 = front;
-
-        while(temp1 != null){
-            L.append(temp1.data);
-            temp1 = temp1.next;
-        }
-
-        return L;
     }
 }
