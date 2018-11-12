@@ -1,6 +1,6 @@
 //-----------------------------------------------------------------------------
-// Matrix.java
-//
+// Sparse.java
+// Receives matrix input and outputs a pre-determined set of operations
 // Written by: Eduardo Zamora
 // Email: ezamora9@ucsc.edu
 // Programming Assignment 3

@@ -1,0 +1,27 @@
+Written by: Eduardo Zamora
+Email: ezamora9@ucsc.edu
+Programming Assignment 3
+
+
+Included files:
+
+List.java
+	A doubly linked list whose nodes contain Objects that point to Matrix entries.
+
+Matrix.java
+    An array of lists (from List.java) and various matrix operations, and entries that contain int and double values.
+
+ListTest.java
+	A test client for the List ADT.
+
+MatrixTest.java
+    A test client for the Matrix.
+
+Sparse.java
+	Receives matrix input and outputs a pre-determined set of operations.
+
+Makefile
+	Compiles all .java files in the current directory and creates an executable jar file called Sparse.
+
+README
+	See README.

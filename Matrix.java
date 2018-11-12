@@ -1,6 +1,6 @@
 //-----------------------------------------------------------------------------
 // Matrix.java
-//
+// An array of lists (from List.java) and various matrix operations
 // Written by: Eduardo Zamora
 // Email: ezamora9@ucsc.edu
 // Programming Assignment 3
@@ -9,6 +9,7 @@
 //ScalarMult is not within theta values
 
 class Matrix{
+    //private class Entry{
     private class Entry{
         // Fields
         public int column;
